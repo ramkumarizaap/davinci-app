@@ -1,0 +1,5 @@
+Plugins list
+
+ionic cordova plugin add cordova-plugin-camera
+npm install --save @ionic-native/camera
+npm install @ionic-native/core@4.2.0
