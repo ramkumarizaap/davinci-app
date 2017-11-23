@@ -11,14 +11,11 @@ export class ProjectService {
     
     constructor(public http: Http) {   }
 
-    getProjects(id,type) {
-
+    getProjects(id,type,role) {
         let headers = new Headers();
         let options = new RequestOptions({ headers: headers });
-
-        return this.http.get(apiUrl + 'project/list?id='+id+'&type='+type ,options).map(res => res.json())
-            .toPromise();
-
+        return this.http.get(apiUrl + 'project/list?id='+id+'&type='+type+'&role='+role ,options).map(res => res.json())
+           .toPromise();
     }
 
     getMilestones(project_id,cont_id,type) {
@@ -57,11 +54,11 @@ export class ProjectService {
         return this.http.get(apiUrl + 'project/milestone_status?id='+ id, options).map(res => res.json())
         .toPromise();
     }
-    getOngoingProjects(id)
+    getOngoingProjects(id,mid)
     {
         let headers = new Headers();
         let options = new RequestOptions({ headers: headers });
-        return this.http.get(apiUrl + 'project/get_ongoing_projects_by_manager?id='+ id, options).map(res => res.json())
+        return this.http.get(apiUrl + 'project/get_ongoing_projects_by_manager?id='+ id+'&mid='+mid, options).map(res => res.json())
         .toPromise();
     }
 

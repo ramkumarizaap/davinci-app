@@ -42,7 +42,8 @@ export class CompleteMilestonePage {
 
     findAll() {
         let id = this.globalVar.getId();
-        this.service.getProjects(id,'complete')
+        let role = this.globalVar.getUserRole();
+        this.service.getProjects(id,'complete',role)
             .then(res =>{
                 this.properties = res.data;
                 this.responsedata = res.data;
@@ -56,7 +57,8 @@ export class CompleteMilestonePage {
     doRefresh(refresher: Refresher) {
 
         let id = this.globalVar.getId();
-        this.service.getProjects(id,'complete').then(res =>{
+        let role = this.globalVar.getUserRole();
+        this.service.getProjects(id,'complete',role).then(res =>{
             this.properties = res.data;
             this.responsedata = res.data;
 

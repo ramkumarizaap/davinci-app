@@ -36,7 +36,8 @@ export class ContractorsPage {
 
     findAll() {
       let id = this.globalVar.getId();
-        this.service.getContractors(id)
+      let role = this.globalVar.getUserRole();
+        this.service.getContractors(id,role)
             .then(res =>{
               console.log("Data:"+JSON.stringify(res));
                 this.contractors = res.data;

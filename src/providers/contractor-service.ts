@@ -11,12 +11,12 @@ export class ContractorService {
 
 	constructor(public http: Http) {   }
 
-	getContractors(id) {
+	getContractors(id,role) {
 
         let headers = new Headers();
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.get(apiUrl + 'contractors/list?id='+id,options).map(res => res.json())
+        return this.http.get(apiUrl + 'contractors/list?id='+id+'&role='+role,options).map(res => res.json())
             .toPromise();
     }
 

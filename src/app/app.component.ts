@@ -14,7 +14,6 @@ export interface MenuItem {
     title: string;
     component: any;
     icon: string;
-    hidden:boolean
 }
 
 @Component({
@@ -23,24 +22,17 @@ export interface MenuItem {
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = ManagerPage;
+    rootPage: any = LoginPage;
     users:any;
-    menu1:boolean;menu2:boolean;menu3:boolean;menu4:boolean;menu5:boolean;
     appMenuItems: Array<MenuItem>;
 
     constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private globalVar:GlobalVars) {
         this.initializeApp();
-        this.users = this.globalVar.getUserdata();
-        if(this.users.role=='3')
-            this.menu1 = true;
-        if(this.users.role=='2')
-            this.menu2 = true;
         this.appMenuItems = [
-            {title: 'Projects', component: ProjectListPage, icon: 'home',hidden:this.menu1},
-            {title: 'Project Manager', component: ManagerPage, icon: 'logo-buffer',hidden:this.menu2},
-            {title: 'Contractors', component: ContractorsPage, icon: 'ios-people',hidden:this.menu3},
-            {title: 'Milestones', component: CompleteMilestonePage, icon: 'ios-albums',hidden:this.menu4},
-            {title: 'My Account', component: MyaccountPage, icon: 'ios-contact',hidden:this.menu5}, 
+            {title: 'Projects', component: ProjectListPage, icon: 'home'},
+            {title: 'Contractors', component: ContractorsPage, icon: 'ios-people'},
+            {title: 'Milestones', component: CompleteMilestonePage, icon: 'ios-albums'},
+            {title: 'My Account', component: MyaccountPage, icon: 'ios-contact'}, 
         ];
     }
 

@@ -39,27 +39,29 @@ export class ProjectListPage {
 
     findByName(key:string) {
          return this.responsedata.filter((item) => {
-            return item.project_name.toLowerCase().indexOf(key.toLowerCase()) > -1;           
+            return item.project_name.toLowerCase().indexOf(key.toLowerCase()) > -1 || item.project_address.toLowerCase().indexOf(key.toLowerCase()) > -1;           
         }); 
     }
 
     findAll() {
         let id = this.globalVar.getId();
-        this.service.getProjects(id,'pending')
+        let role = this.globalVar.getUserRole();
+        this.service.getProjects(id,'pending',role)
             .then(res =>{
                 this.properties = res.data;
                 this.responsedata = res.data;
 
-                console.log(res.data);
+                console.log(res);
                 this.loading.dismiss();
             })
-            .catch(error => console.log(error));
+            .catch(error =>{console.log(error)});
     }
 
     doRefresh(refresher: Refresher) {
 
         let id = this.globalVar.getId();
-        this.service.getProjects(id,'pending').then(res =>{
+        let role = this.globalVar.getUserRole();
+        this.service.getProjects(id,'pending',role).then(res =>{
             this.properties = res.data;
             this.responsedata = res.data;
 

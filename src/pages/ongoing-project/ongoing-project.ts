@@ -16,8 +16,9 @@ export class OngoingProject {
     // pro_response:boolean = false;
  constructor( public navCtrl: NavController, public navParams: NavParams, public service: ProjectService, private globalVar:GlobalVars,public toastCtrl: ToastController) {
  		this.pid = this.navParams.data;
+         let id = this.globalVar.getId();
  		// this.response = true;
- 		this.service.getOngoingProjects(this.pid)
+ 		this.service.getOngoingProjects(this.pid,id)
             .then(res =>{
               console.log("Data:"+JSON.stringify(res));
                 this.projects = res.data;
