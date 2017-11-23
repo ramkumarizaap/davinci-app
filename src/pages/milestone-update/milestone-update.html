@@ -1,0 +1,89 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Milestone Update</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content> 
+    
+    <!--  -->
+<div class="test">
+    <ion-card-content class="card-content">
+      <ion-card-title class="card-title">
+        <strong>{{milestone.name}}</strong>
+      </ion-card-title>
+      <!-- <p> Björk first came to prominence as one of the lead vocalists of the avant pop Icelandic sextet the Sugarcubes, but when... </p> -->
+    </ion-card-content>
+</div>
+    <!--  -->
+
+    <form #milestoneForm="ngForm" novalidate>
+        <ion-list >
+
+            <ion-item >
+                <ion-label stacked color__red>Work Items</ion-label>
+                <ion-select interface="popover" [(ngModel)]="formData.work_item" name="work_item" #work_item="ngModel" placeholder="Select Work" required >
+                    <ion-option *ngFor="let work of workitems" value="{{work.id}}">{{work.work_name}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <p ion-text [hidden]="work_item.valid || submitted == false" color="danger" padding-left>
+                Work item is required
+            </p>
+
+            <ion-item >
+                <ion-label stacked color__red>Room</ion-label>
+                <ion-select interface="popover" [(ngModel)]="formData.room" name="room" #room="ngModel" placeholder="Select Room" required >
+                    <ion-option *ngFor="let room of rooms" value="{{room.id}}">{{room.room_name}}({{room.room_no}})</ion-option>
+                </ion-select>
+            </ion-item>
+            <p ion-text [hidden]="room.valid || submitted == false" color="danger" padding-left>
+                Room is required
+            </p>
+
+            <ion-item>
+                <ion-label stacked color__red>Working Status</ion-label>
+                <ion-select interface="popover" [(ngModel)]="formData.status" name="status"  placeholder="Select Status" required #status="ngModel">
+                    <ion-option value="PENDING">Pending</ion-option>
+                    <ion-option value="PROCESSING">Processing</ion-option>
+                    <ion-option value="HOLD">Hold</ion-option>
+                    <ion-option value="COMPLETED">Completed</ion-option>
+                </ion-select>
+            </ion-item>
+            <p ion-text [hidden]="status.valid || submitted == false" color="danger" padding-left>
+                Status is required
+            </p>
+
+            <ion-item>
+                <ion-label stacked color__red>Description</ion-label>
+                <ion-textarea [(ngModel)]="formData.description" name="description" #description="ngModel" required></ion-textarea>
+            </ion-item>
+            <p ion-text [hidden]="description.valid || submitted == false" color="danger" padding-left>
+                Description is required
+            </p>
+
+            <ion-row responsive-sm> 
+                <button ion-button btn-center (click)="takePhoto()">Take Photo</button>
+            </ion-row>
+
+            <ion-grid *ngIf="photos">
+              <ion-row>
+                <ion-col col-3 *ngFor="let photo of photos;let id=index">
+                  <div class="photo__action">
+                      <img [src]="photo" *ngIf="photo">
+                      <ion-icon name="md-trash" class="action__delete" (click)="deletePhoto(id)"></ion-icon>
+
+                  </div>
+                </ion-col>
+               
+              </ion-row>
+            </ion-grid>
+        </ion-list>
+
+        <ion-row responsive-sm>
+            <ion-col>
+                <button ion-button btn-center (click)="updateStatus(milestoneForm)" type="submit" block >Submit</button>
+            </ion-col>
+        </ion-row>
+        
+    </form>
+</ion-content>

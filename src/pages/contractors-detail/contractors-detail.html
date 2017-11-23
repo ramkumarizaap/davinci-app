@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>View Contractor</ion-title>
+    </ion-navbar>
+</ion-header>
+
+ <ion-content>
+    <div class="test">
+        <ion-card-content class="card-content">
+          <ion-card-title class="card-title">
+            <strong>{{contractor.first_name}}</strong>
+          </ion-card-title>
+        </ion-card-content>
+
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+             Address
+            </ion-card-title>
+            <p>{{contractor.address1}},{{contractor.address2}},{{contractor.city}},{{contractor.state}},{{contractor.zip}}</p>
+          </ion-card-content>          
+        </ion-card>
+    </div> 
+
+    <div *ngIf="response">
+      <ion-card>
+          <ion-card-header>
+            <strong>Other Info</strong>
+          </ion-card-header>
+          <ion-list>
+              <ion-item>
+                  <h3>Last Name</h3>
+                  <ion-note item-right>{{contractor.last_name}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Username</h3>
+                  <ion-note item-right>{{contractor.username}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Company Name</h3>
+                  <ion-note item-right>{{contractor.company_name}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Sec. Email</h3>
+                  <ion-note item-right>{{contractor.email2}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Phone</h3>
+                  <ion-note item-right>{{contractor.office_phone}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Personal Phone</h3>
+                  <ion-note item-right>{{contractor.cell_phone}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Status</h3>
+                  <ion-badge color="{{(contractor.active=='Y')?'secondary':'danger'}}" item-right>{{(contractor.active=='Y')?'Active':'Inactive'}}</ion-badge>
+              </ion-item>
+          </ion-list>
+      </ion-card>
+    </div>
+</ion-content>

@@ -1,0 +1,40 @@
+ion-note {
+  // color: map-get($colors, primary);
+  // font-size: 1.4rem !important;
+
+	color:map-get($colors, dark) !important;
+	padding:3px 5px;
+	border-radius:3px;
+	font-weight:bold;
+}
+
+ion-item {
+	ion-icon {
+		color: map-get($colors, primary);
+	}
+}
+
+h3 {
+	color: map-get($colors, dark);
+} 
+
+ion-card {
+	ion-card-header {
+		background: #f9f6f6;
+		// border-bottom: 1px solid #ddd;
+
+		ion-card-content {
+			padding-top: 15px;
+		}
+	}
+}
+
+[btn-center] {
+	display: inherit;
+	margin: 15px auto;
+}
+
+ion-card-header strong,
+ion-label h3 {
+	color:map-get($colors, primary) !important;
+}

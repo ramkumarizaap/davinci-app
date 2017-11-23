@@ -1,0 +1,28 @@
+<ion-header>
+<ion-toolbar>
+  <ion-title>Milestone Pictures</ion-title>
+  <ion-buttons end>
+        <button (click)="dismiss()" picgallery><ion-icon name="md-close-circle" ion-icon-large>        </ion-icon></button >
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	
+	<div class="test">
+        <ion-card-content class="card-content">
+          <ion-card-title class="card-title">
+            <strong>{{milestone.name}}</strong>
+          </ion-card-title>
+        </ion-card-content>
+    </div>
+
+    <ion-slides #slides zoom="true" pager parallax data__slide--milestone>
+        <ion-slide *ngFor="let pic of milestone.photos" >
+            <div class="swiper-zoom-container">
+                <img src="{{imgpath}}{{pic}}" imageViewer>
+            </div>
+        </ion-slide>
+    </ion-slides> 
+
+</ion-content>

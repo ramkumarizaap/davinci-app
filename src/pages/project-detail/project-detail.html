@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div class="test">
+        <ion-card-content class="card-content">
+          <ion-card-title class="card-title">
+            <strong>{{project.project_name}}</strong>
+          </ion-card-title>
+        </ion-card-content>
+
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+             Project Address
+            </ion-card-title>
+            <p>{{project.project_address}}</p>
+          </ion-card-content>          
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+             Client Address
+            </ion-card-title>
+            <p>{{project.client_address}}</p>
+          </ion-card-content>          
+        </ion-card>
+    </div> 
+
+    <div *ngIf="response">
+
+        <ion-card *ngFor="let milestone of milestones">
+             <ion-card-header>
+                <strong>{{milestone.name}}</strong>
+            </ion-card-header>
+
+            <ion-card-content>
+                <p>{{milestone.description}}</p>
+            </ion-card-content>
+
+            <ion-list>
+                <ion-item>
+                    <h3>Start Date</h3>
+                    <ion-note item-right>{{milestone.start_date}}</ion-note>
+                </ion-item>
+                <ion-item>
+                    <h3>End Date</h3>
+                    <ion-note item-right>{{milestone.end_date}}</ion-note>
+                </ion-item>
+                <ion-item>
+                    <h3>Status</h3>
+                    <ion-note item-right>{{milestone.status}}</ion-note>
+                </ion-item>
+                <ion-item>
+                    <h3>Work Item</h3>
+                    <ion-note item-right>{{milestone.work_items}}</ion-note>
+                </ion-item>
+                
+                 <button *ngIf="milestone.status != 'COMPLETED' && milestone.review=='1'" ion-button btn-center (click)="ViewCompletedItems(milestone)">
+                   Progress Status
+                </button>
+
+                <button *ngIf="milestone.status != 'COMPLETED'" ion-button btn-center (click)="updateMilestoneStatus(milestone)">
+                   Update Status
+                </button>
+
+                 <button *ngIf="milestone.status == 'COMPLETED'" ion-button btn-center (click)="ViewCompletedItems(milestone)"> View  </button>
+            </ion-list>
+        </ion-card>
+
+    </div>
+</ion-content>

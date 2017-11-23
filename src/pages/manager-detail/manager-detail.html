@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>View Manager</ion-title>
+    </ion-navbar>
+</ion-header>
+
+ <ion-content>
+    <div class="test">
+        <ion-card-content class="card-content">
+          <ion-card-title class="card-title">
+            <strong>{{manager.first_name}}</strong>
+          </ion-card-title>
+        </ion-card-content>
+
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+             Address
+            </ion-card-title>
+            <p>{{manager.address1}},{{manager.address2}},{{manager.city}},{{manager.state}},{{manager.zip}}</p>
+          </ion-card-content>          
+        </ion-card>
+    </div> 
+
+   <div *ngIf="response">
+      <ion-card>
+          <ion-card-header>
+            <strong>Other Info</strong>
+          </ion-card-header>
+          <ion-list>
+              <ion-item>
+                  <h3>Last Name</h3>
+                  <ion-note item-right>{{manager.last_name}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Username</h3>
+                  <ion-note item-right>{{manager.username}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Email</h3>
+                  <ion-note item-right>{{manager.email}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Phone</h3>
+                  <ion-note item-right>{{manager.phone}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <h3>Status</h3>
+                  <ion-badge color="{{(manager.active=='Y')?'secondary':'danger'}}" item-right>{{(manager.active=='Y')?'Active':'Inactive'}}</ion-badge>
+              </ion-item>
+          </ion-list>
+      </ion-card>
+    </div>
+    <div>
+      <button ion-button btn-center (click)="OngoingProjects(manager.id)">View Ongoing Projects</button>
+    </div>
+</ion-content>

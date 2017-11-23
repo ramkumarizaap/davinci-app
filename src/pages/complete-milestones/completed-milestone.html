@@ -1,0 +1,36 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-searchbar  [(ngModel)]="searchKey"  (ionInput)="onInput($event)"
+                       placeholder="Search" ></ion-searchbar>
+    </ion-navbar>   
+</ion-header>
+ 
+<ion-content class="property-list">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+
+        <ion-item-sliding *ngFor="let property of properties" >
+            <button ion-item (click)="property.type='complete';openProjectDetail(property)">
+                <ion-thumbnail item-left>
+                    <img src="{{property.blueprint}}"/>
+                </ion-thumbnail>
+                <h2>{{property.project_name}}</h2>
+                <p>{{property.project_address}}</p>
+            </button>         
+        </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-list-header *ngIf="!properties">
+      No Project milestones completed
+  </ion-list-header>
+
+</ion-content>
+

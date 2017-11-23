@@ -1,0 +1,68 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.menu-logo {
+  height: 80px;
+}
+
+// Custom Style Global
+
+ion-menu ion-list .item ion-icon {
+	color:map-get($colors, light);
+}
+
+.menu-bg .item-block,
+.menu-bg .label  {
+	background-color:transparent !important;
+	color:map-get($colors, light);
+}
+
+ion-list-header,
+.item-block:last-child{
+	border-bottom: 0 !important;
+}
+
+ion-searchbar {
+	.searchbar-input {
+		background-color:rgba(255, 255, 255, 0.9) !important;
+	}
+}
+
+.menu-bg {
+	background-color:map-get($colors, primary);
+}
+
+.logo-center {
+	    text-align: center;
+	    background: map-get($colors, light);
+	    margin: 25px auto;
+	    // margin-top: 0;
+	    border-radius: 50%; 
+	    width: 100px;
+	    height: 100px;
+	    padding: 10px;
+		img {
+			max-width:80px;
+			display: inline-block;
+			
+		}
+	}
+
+h2 {
+	color: map-get($colors, dark)
+}
+
+// .toolbar .searchbar-ios .searchbar-input

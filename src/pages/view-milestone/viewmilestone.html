@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Milestone View</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div class="test">
+        <ion-card-content class="card-content">
+          <ion-card-title class="card-title">
+            <strong>{{milestone.name}}</strong>
+          </ion-card-title>
+        </ion-card-content>
+    </div>
+
+    <div *ngIf="response">
+
+        <ion-card *ngFor="let process of processlist">
+            
+            <ion-card-content>
+                <p>{{process.description}}</p>
+            </ion-card-content>
+
+            <ion-list>
+                <ion-item>
+                    <h3>Updated Date</h3>
+                    <ion-note item-right>{{process.created_date}}</ion-note>
+                </ion-item>
+                <ion-item>
+                    <h3>Status</h3>
+                    <ion-note item-right>{{process.status}}</ion-note>
+                </ion-item>
+
+                <ion-item>
+                    <h3>Work Item</h3>
+                    <ion-note item-right>{{process.work_name}}</ion-note>
+                </ion-item>
+                
+                <ion-item>
+                    <h3>Room</h3>
+                    <ion-note item-right>{{process.room}}</ion-note>
+                </ion-item>
+
+                <div *ngIf="process.photos.length > 0" >
+                     <button ion-button btn-center (click)="ViewPictures(process)">View Pictures
+                     </button>
+                </div>
+
+                <ion-card-content *ngIf="!process.photos" center>
+                    <p> No pictures updated</p>
+                </ion-card-content>
+
+            </ion-list>
+
+        </ion-card>
+
+    </div>
+</ion-content>

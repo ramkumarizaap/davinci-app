@@ -1,0 +1,60 @@
+ion-note {
+  // color: map-get($colors, primary);
+  // font-size: 1.4rem !important;
+
+	color:map-get($colors, dark) !important;
+	padding:3px 5px;
+	border-radius:3px;
+	font-weight:bold;
+}
+
+ion-item {
+	ion-icon {
+		color: map-get($colors, primary);
+	}
+} 
+
+h3 {
+	color: map-get($colors, dark);
+}
+
+[btn-center] {
+	display: inherit;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.photo__action {
+	img {
+		width: 90px;
+    	max-height: 90px;
+    	height: 90px;
+	}
+
+	.action__delete {
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    color:map-get($colors, light);
+	    text-align: center;
+	    width: 45px;
+	    height: 45px;
+	    line-height: 25px;
+	    background:rgba(map-get($colors, primary), 0.5);
+	    padding: 10px;
+	    -webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+	}
+}
+
+
+
+
+ion-card-title,
+[color__red],
+.alert-title {
+	color:map-get($colors, primary) !important;
+}

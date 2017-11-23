@@ -1,0 +1,25 @@
+<ion-menu [content]="content">
+
+  <ion-content class="menu-bg">
+  
+    <div class="logo-center">
+      <img src="assets/img/dreamhouse-logo.svg" class="menu-logo"/>
+    </div>
+
+    <ion-list>
+      <button menuClose ion-item *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)" [hidden]="menuItem.hidden">
+        <ion-icon item-left [name]="menuItem.icon"></ion-icon>
+        {{menuItem.title}}
+      </button>
+      <button menuClose ion-item  (click)="logOut()">
+        <ion-icon item-left name="log-out"></ion-icon>
+        Logout
+      </button>
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

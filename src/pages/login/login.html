@@ -1,0 +1,38 @@
+
+<!-- <ion-header>
+    <ion-navbar> 
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header> -->
+
+  <ion-content padding class="appBackground">
+    <div class="login-bg">
+    <ion-card>
+      <!-- <ion-card-header> Login </ion-card-header> -->
+      <ion-card-content>
+        <ion-list>
+
+            <div class="logo__caption">
+              <h3>daVinci</h3>
+            </div>
+            <div class="login-logo">
+              <img src="assets/img/dreamhouse-logo.svg" alt="">
+            </div>
+          <!-- <ion-item>
+          </ion-item> -->
+          <ion-item>
+            <!-- <ion-label stacked>Username</ion-label> -->
+            <ion-input type="text" [(ngModel)]="userData.username" placeholder="User Name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <!-- <ion-label stacked>Password</ion-label> -->
+            <ion-input type="password" [(ngModel)]="userData.password" placeholder="Password"></ion-input>
+          </ion-item>
+
+          <button ion-button full color="success" (click)="login()">Login</button>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  </ion-content>
