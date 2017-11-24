@@ -17,8 +17,9 @@ export class OngoingProject {
  constructor( public navCtrl: NavController, public navParams: NavParams, public service: ProjectService, private globalVar:GlobalVars,public toastCtrl: ToastController) {
  		this.pid = this.navParams.data;
          let id = this.globalVar.getId();
+         let role = this.globalVar.getUserRole();
  		// this.response = true;
- 		this.service.getOngoingProjects(this.pid,id)
+ 		this.service.getOngoingProjects(this.pid,id,role)
             .then(res =>{
               console.log("Data:"+JSON.stringify(res));
                 this.projects = res.data;

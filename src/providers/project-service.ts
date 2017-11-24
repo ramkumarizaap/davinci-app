@@ -54,11 +54,11 @@ export class ProjectService {
         return this.http.get(apiUrl + 'project/milestone_status?id='+ id, options).map(res => res.json())
         .toPromise();
     }
-    getOngoingProjects(id,mid)
+    getOngoingProjects(id,mid,role)
     {
         let headers = new Headers();
         let options = new RequestOptions({ headers: headers });
-        return this.http.get(apiUrl + 'project/get_ongoing_projects_by_manager?id='+ id+'&mid='+mid, options).map(res => res.json())
+        return this.http.get(apiUrl + 'project/get_ongoing_projects_by_manager?id='+ id+'&mid='+mid+'&role='+role, options).map(res => res.json())
         .toPromise();
     }
 
