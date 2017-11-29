@@ -7,7 +7,7 @@ import {LoginPage} from '../pages/login/login';
 import {MyaccountPage} from '../pages/myaccount/myaccount';
 import {ProjectListPage} from '../pages/project/project';
 import {ContractorsPage} from '../pages/contractors/contractors';
-import {ManagerPage} from '../pages/manager/manager';
+// import {ManagerPage} from '../pages/manager/manager';
 import {CompleteMilestonePage} from '../pages/complete-milestones/completed-milestone';
 
 export interface MenuItem {

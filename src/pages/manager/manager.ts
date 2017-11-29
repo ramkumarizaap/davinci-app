@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, LoadingController, ToastController,Refresher} from 'ionic-angular';
+import {NavController, LoadingController, ToastController} from 'ionic-angular';
 import {ManagerService} from '../../providers/manager-service';
 import {MgDetailPage} from '../manager-detail/manager-detail';
 import {GlobalVars} from '../../providers/globalVars';
