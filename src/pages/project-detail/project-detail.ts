@@ -19,16 +19,20 @@ export class ProjectDetailPage {
     response:boolean = false;
     title:string;
     cont:string = "";
+    updatebtn:boolean = true;
     prodetail:boolean = true;
 
     constructor( public navCtrl: NavController, public navParams: NavParams, public service: ProjectService, private globalVar:GlobalVars,public toastCtrl: ToastController) {
 
         this.project = this.navParams.data.project;
+        console.log(this.navParams.data);
         if(this.navParams.data.cont!='')
         {
           this.cont = this.navParams.data.cont;
            this.prodetail = false;
         }
+        if(this.navParams.data.upbtn==false)
+          this.updatebtn = false;
         let contid = this.globalVar.getId();
         if(this.project.type == 'pending')
             this.title = 'Project Milestones';
