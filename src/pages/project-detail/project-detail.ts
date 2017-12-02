@@ -26,7 +26,6 @@ export class ProjectDetailPage {
         this.project = this.navParams.data.project;
         if(this.navParams.data.cont!='')
         {
-          alert("Going");
           this.cont = this.navParams.data.cont;
            this.prodetail = false;
         }
