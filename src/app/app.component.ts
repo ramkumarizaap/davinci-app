@@ -7,7 +7,6 @@ import {LoginPage} from '../pages/login/login';
 import {MyaccountPage} from '../pages/myaccount/myaccount';
 import {ProjectListPage} from '../pages/project/project';
 import {ContractorsPage} from '../pages/contractors/contractors';
-// import {ManagerPage} from '../pages/manager/manager';
 import {CompleteMilestonePage} from '../pages/complete-milestones/completed-milestone';
 
 export interface MenuItem {
@@ -34,6 +33,7 @@ export class MyApp {
             {title: 'Milestones', component: CompleteMilestonePage, icon: 'ios-albums'},
             {title: 'My Account', component: MyaccountPage, icon: 'ios-contact'}, 
         ];
+
     }
 
     initializeApp() {
@@ -42,7 +42,9 @@ export class MyApp {
             // Here you can do any higher level native things you might need.
             //this.statusBar.styleLightContent();
             this.splashScreen.hide();
+          
         });
+
     }
 
     openPage(page) {

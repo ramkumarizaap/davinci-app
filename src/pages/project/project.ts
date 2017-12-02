@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, LoadingController, ToastController,Refresher} from 'ionic-angular';
 import {ProjectService} from '../../providers/project-service';
 import {ProjectDetailPage} from '../project-detail/project-detail';
+import {LoginPage} from '../login/login';
 import {GlobalVars} from '../../providers/globalVars';
 
 @Component({
@@ -17,12 +18,23 @@ export class ProjectListPage {
     users:any;
 
     constructor(public navCtrl: NavController, public service: ProjectService,private loader:LoadingController, private globalVar:GlobalVars,public toastCtrl: ToastController) {
-        this.users = this.globalVar.getUserdata();
-        console.log(this.users);
-        this.findAll();
-        this.loading = this.loader.create();
-        this.loading.present();
+        
     }
+
+    ngOnInit(){
+
+        this.users = this.globalVar.getUserdata();
+
+        if(this.users === null){
+            this.navCtrl.setRoot(LoginPage);
+        }else{
+
+            this.findAll();
+            this.loading = this.loader.create();
+            this.loading.present();
+        }
+    }    
+    
 
     openProjectDetail(property: any) {
         this.navCtrl.push(ProjectDetailPage, {project:property,cont:''});
