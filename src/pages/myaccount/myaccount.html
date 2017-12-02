@@ -3,7 +3,7 @@ T<ion-header>
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>My Account</ion-title>
+        <ion-title>{{title}}</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -18,7 +18,7 @@ T<ion-header>
             <ion-item>
                 <ion-icon name="paper" item-left></ion-icon>
                 <h2 class="card-title">{{userdata.company_name}}</h2>
-                <p>{{userdata.address1}}, {{userdata.city}} {{userdata.state}},{{userdata.zip}}</p>
+                <p text-wrap>{{userdata.address1}}, {{userdata.city}} {{userdata.state}},{{userdata.zip}}</p>
             </ion-item>
 
             <a href="tel:{{userdata.phone}}" ion-item>

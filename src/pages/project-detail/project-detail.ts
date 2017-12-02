@@ -40,7 +40,7 @@ export class ProjectDetailPage {
             this.milestones = result.data;
             this.managers = result.managers;
             this.super = result.super;
-            console.log(result);
+            console.log(this.managers);
         });
     }
 
@@ -74,8 +74,8 @@ export class ProjectDetailPage {
         .catch(error => console.log(error));
    
     }
-     showUserDetail(user: any) {
-        this.navCtrl.push(MyaccountPage, user);
+     showUserDetail(user: any,type:any) {
+        this.navCtrl.push(MyaccountPage, {user:user,type:type});
     }
 
     

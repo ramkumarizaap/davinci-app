@@ -24555,6 +24555,28 @@ ion-label h3 {
   color: #990000 !important;
 }
 
+.no-pad-bottom {
+  padding-bottom: 0px;
+}
+
+.detail-user {
+  padding: 5px;
+  margin: 0;
+}
+
+.detail-user h5 {
+  font-size: 16px;
+}
+
+.detail-user ion-item {
+  margin: 0 !important;
+  border-top: none !important;
+}
+
+.detail-user ion-item ion-note {
+  font-size: 14px !important;
+}
+
 ion-note {
   color: #1e1e1b !important;
   padding: 3px 5px;

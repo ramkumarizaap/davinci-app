@@ -38,3 +38,9 @@ ion-card-header strong,
 ion-label h3 {
 	color:map-get($colors, primary) !important;
 }
+
+.no-pad-bottom{padding-bottom:0px;}
+.detail-user{padding:5px;margin:0;}
+.detail-user h5{font-size:16px;}
+.detail-user ion-item{margin:0 !important;border-top:none !important;}
+.detail-user ion-item ion-note{font-size:14px !important;}

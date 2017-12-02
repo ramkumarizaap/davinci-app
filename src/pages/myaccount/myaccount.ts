@@ -9,14 +9,23 @@ import {GlobalVars} from '../../providers/globalVars';
 export class MyaccountPage {
 
     userdata:any;
+    title:any;
 
     constructor(public navCtrl: NavController,  public navParams: NavParams,private globaVar:GlobalVars) {
-        var user = this.navParams.data;
-        console.log(Object.keys(user).length);
-        if(Object.keys(user).length > 1)
-        	this.userdata = user;
+         this.title = "My Account";
+         if(Object.keys(this.navParams.data).length > 1)
+         {
+            var user = this.navParams.data;
+            if(Object.keys(user.user).length > 1)
+            {
+                this.title = this.navParams.data.type+' Account';
+                this.userdata = user.user;
+            }
+         }
         else
+        {
         	this.userdata = this.globaVar.getUserdata();
+        }
         console.log(Object.keys(this.userdata).length);
     }
 

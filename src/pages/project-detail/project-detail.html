@@ -10,35 +10,37 @@
     </ion-refresher>
 
     <div class="test">
-        <ion-card-content class="card-content" *ngIf="prodetail">
-          <ion-card-title class="card-title">
+        <ion-card-content class="no-pad-bottom card-content" *ngIf="prodetail">
+          <ion-card-title class="no-pad-bottom card-title">
             <strong>{{project.project_name}}</strong>
           </ion-card-title>
         </ion-card-content>
-        <ion-card *ngIf="prodetail">
-          <ion-card-content>
-            <ion-card-title>
-             Project Manager
-            </ion-card-title>
-            <ion-list >
-              <button ion-item *ngFor="let mg of managers" (click)="showUserDetail(mg)">
-                {{ mg.name }}
-              </button>  
-            </ion-list>
-          </ion-card-content>          
-        </ion-card>
-         <ion-card *ngIf="prodetail">
-          <ion-card-content>
-            <ion-card-title>
-             Project Superintendent
-            </ion-card-title>
-            <ion-list >
-              <button ion-item *ngFor="let sup of super"  (click)="showUserDetail(sup)">
-                {{ sup.name }}
-              </button>  
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
+        <!-- <div class="detail-user" *ngIf="prodetail">
+          <h5>Manager</h5>
+          <ion-list>
+            <button ion-item *ngFor="let mg of managers" (click)="showUserDetail(mg,'Manager')">
+              {{ mg.name }}
+            </button>  
+          </ion-list>
+        </div> -->
+        <ion-list *ngIf="prodetail" class="detail-user">
+          <ion-item *ngFor="let mg of managers" (click)="showUserDetail(mg,'Manager')">
+              <h2>Manager</h2>
+              <ion-note item-right>{{mg.name}}
+                <ion-icon name="contact"></ion-icon>
+                <ion-icon name="arrow-forward"></ion-icon>
+              </ion-note>
+          </ion-item>
+        </ion-list>
+        <ion-list class="detail-user" *ngIf="prodetail">
+          <ion-item *ngFor="let sup of super" (click)="showUserDetail(sup,'Superintendent')">
+              <h2>Superintendent</h2>
+              <ion-note item-right>{{sup.name}}
+                <ion-icon name="contact"></ion-icon>
+                <ion-icon name="arrow-forward"></ion-icon>
+              </ion-note>
+          </ion-item>
+        </ion-list>
         <ion-card *ngIf="prodetail">
           <ion-card-content>
             <ion-card-title>
