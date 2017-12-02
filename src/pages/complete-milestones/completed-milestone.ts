@@ -48,7 +48,6 @@ export class CompleteMilestonePage {
                 this.properties = res.data;
                 this.responsedata = res.data;
 
-                console.log(res.data);
                 this.loading.dismiss();
             })
             .catch(error => console.log(error));

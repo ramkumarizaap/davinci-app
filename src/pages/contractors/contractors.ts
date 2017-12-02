@@ -39,7 +39,6 @@ export class ContractorsPage {
       let role = this.globalVar.getUserRole();
         this.service.getContractors(id,role)
             .then(res =>{
-              console.log("Data:"+JSON.stringify(res));
                 this.contractors = res.data;
                 this.responsedata = res.data;
 
@@ -56,22 +55,24 @@ export class ContractorsPage {
 
     doRefresh(refresher: Refresher) {
 
-        // let id = this.globalVar.getId();
-        // this.service.getProjects(id,'pending').then(res =>{
-        //     this.properties = res.data;
-        //     this.responsedata = res.data;
+        let id = this.globalVar.getId();
+        let role = this.globalVar.getUserRole();
+        this.service.getContractors(id,role)
+            .then(res =>{
+                this.contractors = res.data;
+                this.responsedata = res.data;
 
-        //     setTimeout(() => {
-        //         refresher.complete();
+                setTimeout(() => {
+                    refresher.complete();
 
-        //         const toast = this.toastCtrl.create({
-        //           message: 'Projects have been updated.',
-        //           duration: 3000
-        //         });
-        //         toast.present();
-        //     }, 1000);
-        // })
-        // .catch(error => console.log(error));
+                    const toast = this.toastCtrl.create({
+                      message: 'Contractors have been updated.',
+                      duration: 3000
+                    });
+                    toast.present();
+                }, 1000);
+            })
+            .catch(error => console.log("Error:"+error));
    
     }
 }

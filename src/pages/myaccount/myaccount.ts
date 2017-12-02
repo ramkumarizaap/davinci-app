@@ -26,7 +26,6 @@ export class MyaccountPage {
         {
         	this.userdata = this.globaVar.getUserdata();
         }
-        console.log(Object.keys(this.userdata).length);
     }
 
 }

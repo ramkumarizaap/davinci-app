@@ -9,9 +9,8 @@ import {GlobalVars} from '../../providers/globalVars';
     templateUrl: 'manager-detail.html'
 })
 export class MgDetailPage {
- 		manager: any;
+ 	manager: any;
     response:boolean = false;
-    // pro_response:boolean = false;
  constructor( public navCtrl: NavController, public navParams: NavParams, public service: ContractorService, private globalVar:GlobalVars,public toastCtrl: ToastController) {
  		this.manager = this.navParams.data;
  		this.response = true;
