@@ -22,7 +22,7 @@ export class CompleteMilestonePage {
     }
 
     openProjectDetail(property: any) {
-        this.navCtrl.push(ProjectDetailPage, property);
+        this.navCtrl.push(ProjectDetailPage, {project:property,cont:''});
     }
 
     onInput(event) {

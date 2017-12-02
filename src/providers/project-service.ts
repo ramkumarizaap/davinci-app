@@ -18,12 +18,12 @@ export class ProjectService {
            .toPromise();
     }
 
-    getMilestones(project_id,cont_id,type) {
+    getMilestones(project_id,cont_id,type,cont) {
 
         let headers = new Headers();
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.get(apiUrl + 'project/project_milestones?id='+cont_id+'&project_id='+project_id+'&type='+type ,options)
+        return this.http.get(apiUrl + 'project/project_milestones?id='+cont_id+'&project_id='+project_id+'&type='+type+'&cont='+cont ,options)
         .map(res => res.json())
         .toPromise();
     }

@@ -8,11 +8,9 @@ T<ion-header>
 </ion-header>
 
 <ion-content class="broker">
-
     <ion-card>
-
         <ion-card-content>
-            <img src="https://s3-us-west-1.amazonaws.com/sfdc-demo/people/caroline_kingsley.jpg"/>
+            <img src="../assets/img/user.png"/>
             <h2>{{userdata.name}} </h2>
         </ion-card-content>
 
@@ -23,20 +21,20 @@ T<ion-header>
                 <p>{{userdata.address1}}, {{userdata.city}} {{userdata.state}},{{userdata.zip}}</p>
             </ion-item>
 
-            <a href="tel:{{userdata.office_phone}}" ion-item>
+            <a href="tel:{{userdata.phone}}" ion-item>
                 <ion-icon name="call" item-left></ion-icon>
-                <p>Call Office</p>
-                <h2>{{userdata.office_phone}}</h2>
+                <p>Phone</p>
+                <h2>{{userdata.phone}}</h2>
             </a>
-            <a href="tel:{{userdata.cell_phone}}" ion-item>
+            <!-- <a href="tel:{{userdata.cell_phone}}" ion-item>
                 <ion-icon name="call" item-left></ion-icon>
                 <p>Call Mobile</p>
                 <h2>{{userdata.cell_phone}}</h2>
-            </a>
-            <a href="mailto:{{userdata.email1}}" ion-item>
+            </a> -->
+            <a href="mailto:{{userdata.email}}" ion-item>
                 <ion-icon name="mail" item-left></ion-icon>
                 <p>Email</p>
-                <h2>{{userdata.email1}}</h2>
+                <h2>{{userdata.email}}</h2>
             </a>
         </ion-list>
 

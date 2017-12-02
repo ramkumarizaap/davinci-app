@@ -4,6 +4,7 @@ import {ProjectService} from '../../providers/project-service';
 import {GlobalVars} from '../../providers/globalVars';
 import {MilestoneUpdatePage} from '../milestone-update/milestone-update';
 import {ViewMilestonePage} from '../view-milestone/viewmilestone';
+import {MyaccountPage} from '../myaccount/myaccount';
 
 @Component({
     selector: 'page-project-detail',
@@ -13,24 +14,34 @@ export class ProjectDetailPage {
 
     project: any;
     milestones:any;
+    super:any;
+    managers:any;
     response:boolean = false;
     title:string;
+    cont:string = "";
+    prodetail:boolean = true;
 
     constructor( public navCtrl: NavController, public navParams: NavParams, public service: ProjectService, private globalVar:GlobalVars,public toastCtrl: ToastController) {
 
-        this.project = this.navParams.data;
+        this.project = this.navParams.data.project;
+        if(this.navParams.data.cont!='')
+        {
+          alert("Going");
+          this.cont = this.navParams.data.cont;
+           this.prodetail = false;
+        }
         let contid = this.globalVar.getId();
-
         if(this.project.type == 'pending')
             this.title = 'Project Milestones';
         else
-            this.title = 'Completed Milestones';    
-
-        this.service.getMilestones(this.project.id,contid,this.project.type).then(result =>{
+            this.title = 'Milestones';    
+        this.service.getMilestones(this.project.id,contid,this.project.type,this.cont).then(result =>{
 
             this.response = true;
             this.milestones = result.data;
-
+            this.managers = result.managers;
+            this.super = result.super;
+            console.log(result);
         });
     }
 
@@ -46,7 +57,7 @@ export class ProjectDetailPage {
 
         let contid = this.globalVar.getId();
 
-        this.service.getMilestones(this.project.id,contid,this.project.type).then(res =>{
+        this.service.getMilestones(this.project.id,contid,this.project.type,this.cont).then(res =>{
 
             this.response = true;
             this.milestones = res.data;
@@ -63,6 +74,9 @@ export class ProjectDetailPage {
         })
         .catch(error => console.log(error));
    
+    }
+     showUserDetail(user: any) {
+        this.navCtrl.push(MyaccountPage, user);
     }
 
     

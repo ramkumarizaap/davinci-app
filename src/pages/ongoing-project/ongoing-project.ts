@@ -30,7 +30,7 @@ export class OngoingProject {
             })
             .catch(error => console.log("Error:"+error));
  	}
- 	 ViewDetails(project: any) {
-        this.navCtrl.push(ProjectDetailPage, project);
+ 	 ViewDetails(project: any,pid) {
+        this.navCtrl.push(ProjectDetailPage, {project:project,cont:pid});
     }
 }

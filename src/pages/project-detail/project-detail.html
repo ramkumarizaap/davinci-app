@@ -10,13 +10,36 @@
     </ion-refresher>
 
     <div class="test">
-        <ion-card-content class="card-content">
+        <ion-card-content class="card-content" *ngIf="prodetail">
           <ion-card-title class="card-title">
             <strong>{{project.project_name}}</strong>
           </ion-card-title>
         </ion-card-content>
-
-        <ion-card>
+        <ion-card *ngIf="prodetail">
+          <ion-card-content>
+            <ion-card-title>
+             Project Manager
+            </ion-card-title>
+            <ion-list >
+              <button ion-item *ngFor="let mg of managers" (click)="showUserDetail(mg)">
+                {{ mg.name }}
+              </button>  
+            </ion-list>
+          </ion-card-content>          
+        </ion-card>
+         <ion-card *ngIf="prodetail">
+          <ion-card-content>
+            <ion-card-title>
+             Project Superintendent
+            </ion-card-title>
+            <ion-list >
+              <button ion-item *ngFor="let sup of super"  (click)="showUserDetail(sup)">
+                {{ sup.name }}
+              </button>  
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <ion-card *ngIf="prodetail">
           <ion-card-content>
             <ion-card-title>
              Project Address
@@ -25,7 +48,7 @@
           </ion-card-content>          
         </ion-card>
 
-        <ion-card>
+        <ion-card *ngIf="prodetail">
           <ion-card-content>
             <ion-card-title>
              Client Address
@@ -63,12 +86,16 @@
                     <h3>Work Item</h3>
                     <ion-note item-right>{{milestone.work_items}}</ion-note>
                 </ion-item>
+                <ion-item>
+                    <h3>Contractor</h3>
+                    <ion-note item-right>{{milestone.company_name}}</ion-note>
+                </ion-item>
                 
                  <button *ngIf="milestone.status != 'COMPLETED' && milestone.review=='1'" ion-button btn-center (click)="ViewCompletedItems(milestone)">
                    Progress Status
                 </button>
 
-                <button *ngIf="milestone.status != 'COMPLETED'" ion-button btn-center (click)="updateMilestoneStatus(milestone)">
+                <button *ngIf="milestone.status != 'COMPLETED' && prodetail" ion-button btn-center (click)="updateMilestoneStatus(milestone)">
                    Update Status
                 </button>
 

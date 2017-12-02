@@ -4,14 +4,39 @@
     </ion-navbar>
 </ion-header>
 
- <ion-content>
+<!--  <ion-content>
     <div class="test">
-        <ion-card-content class="card-content">
-          <ion-card-title class="card-title">
-            <strong>{{contractor.first_name}}</strong>
-          </ion-card-title>
+        <ion-card-content>
+            <img src="../assets/img/user.png"/>
+            <h2>{{contractor.first_name}} </h2>
         </ion-card-content>
-
+        <ion-list>
+          <ion-item>
+              <ion-icon name="paper" item-left></ion-icon>
+              <h2 class="card-title">{{contractor.company_name}}</h2>
+              <p>{{contractor.address1}}, {{contractor.city}} {{contractor.state}},{{contractor.zip}}</p>
+          </ion-item>
+          <a href="tel:{{contractor.office_phone}}" ion-item>
+              <ion-icon name="call" item-left></ion-icon>
+              <p>Phone</p>
+              <h2>{{contractor.office_phone}}</h2>
+          </a>
+          <!-- <a href="tel:{{userdata.cell_phone}}" ion-item>
+              <ion-icon name="call" item-left></ion-icon>
+              <p>Call Mobile</p>
+              <h2>{{userdata.cell_phone}}</h2>
+          </a> --
+          <a href="mailto:{{contractor.email1}}" ion-item>
+              <ion-icon name="mail" item-left></ion-icon>
+              <p>Email</p>
+              <h2>{{contractor.email1}}</h2>
+          </a>
+          <a href="#" ion-item detail-none>
+              <ion-icon name="eye" item-left></ion-icon>
+              <p>Status</p>
+              <ion-badge color="{{(contractor.active=='Y')?'secondary':'danger'}}" item-right>{{(contractor.active=='Y')?'Active':'Inactive'}}</ion-badge>
+          </a>
+        </ion-list>
         <ion-card>
           <ion-card-content>
             <ion-card-title>
@@ -22,7 +47,7 @@
         </ion-card>
     </div> 
 
-    <div *ngIf="response">
+    <!-- <div *ngIf="response">
       <ion-card>
           <ion-card-header>
             <strong>Other Info</strong>
@@ -58,8 +83,42 @@
               </ion-item>
           </ion-list>
       </ion-card>
-    </div>
+    </div> --
     <div>
       <button ion-button btn-center (click)="OngoingProjects(contractor.id)">View Ongoing Projects</button>
     </div>
+</ion-content> -->
+<ion-content class="broker">
+  <ion-card>
+    <ion-card-content>
+        <img src="../assets/img/user.png"/>
+        <h2>{{contractor.name}} </h2>
+    </ion-card-content>
+    <ion-list>
+        <ion-item>
+            <ion-icon name="home" item-left></ion-icon>
+            <h2 class="card-title">{{contractor.company_name}}</h2>
+            <p>{{contractor.address1}}, {{contractor.city}} {{contractor.state}},{{contractor.zip}}</p>
+        </ion-item>
+
+        <a href="tel:{{contractor.office_phone}}" ion-item>
+            <ion-icon name="call" item-left></ion-icon>
+            <p>Phone</p>
+            <h2>{{contractor.office_phone}}</h2>
+        </a>
+        <!-- <a href="tel:{{userdata.cell_phone}}" ion-item>
+            <ion-icon name="call" item-left></ion-icon>
+            <p>Call Mobile</p>
+            <h2>{{userdata.cell_phone}}</h2>
+        </a> -->
+        <a href="mailto:{{contractor.email1}}" ion-item>
+            <ion-icon name="mail" item-left></ion-icon>
+            <p>Email</p>
+            <h4>{{contractor.email1}}</h4>
+        </a>
+    </ion-list>
+  </ion-card>
+  <div>
+    <button ion-button btn-center (click)="OngoingProjects(contractor.id)">View Ongoing Projects</button>
+  </div>
 </ion-content>
