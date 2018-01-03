@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.coenraets.daVinci" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.davincicons.davincicons" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>daVinci</name>
-    <description>Construction</description>
-    <author email="ccoenraets@gmail.com" href="http://coenraets.org">Christophe Coenraets</author>
+    <description>daVinci Construction</description>
+    <author email="davinci@8thdomaintechnology.com" href="http://www.davinci-construction.com">daVinci Construction</author>
     <content src="index.html" />
+    <content original-src="index.html" />
     <access origin="*" />
-    <allow-navigation href="http://ionic.local/*" />
+    <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -45,6 +46,7 @@
         <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+        <preference name="loadUrlTimeoutValue" value="700000" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -82,8 +84,8 @@
         <icon height="1024" src="resources/ios/icon/icon-1024.png" width="1024" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
+    <engine name="android" spec="~6.3.0" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-device" spec="^1.1.7" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />

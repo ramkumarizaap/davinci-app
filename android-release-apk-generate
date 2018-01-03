@@ -1,0 +1,16 @@
+//First time command
+keytool -genkey -v -keystore C:\Users\saravanan\Documents\GitHub\davinci-app\davinci.keystore -alias daVinciapp -keyalg RSA -keysize 2048 -validity 10000
+
+
+keystore pwd : davinci123
+
+New details below
+
+platform create
+ionic cordova platform add android@6.2.3
+
+ionic cordova build android --release
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore C:\Users\saravanan\Documents\GitHub\davinci-app\davinci.keystore C:\Users\saravanan\Documents\GitHub\davinci-app\platforms\android\build\outputs\apk\android-release-unsigned.apk daVinciapp
+
+C:\Users\saravanan\AppData\Local\Android\sdk1\build-tools\26.0.2\zipalign -v 4 C:\Users\saravanan\Documents\GitHub\davinci-app\platforms\android\build\outputs\apk\android-release-unsigned.apk C:\Users\saravanan\Documents\GitHub\davinci-app\platforms\android\build\outputs\apk\daVinciapp.apk
