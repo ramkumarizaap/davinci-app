@@ -1,0 +1,33 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.davincicons.davincicons"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.davincicons.davincicons"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.davincicons.davincicons"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.davincicons.davincicons"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.davincicons.davincicons"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.davincicons.davincicons"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.davincicons.davincicons"
+    }
+  },
+  "dependent_plugins": {}
+}

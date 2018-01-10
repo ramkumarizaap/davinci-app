@@ -12,22 +12,17 @@ log.txt
 .vscode/
 npm-debug.log*
 
-src/providers/config.ts
 .idea/
 .sass-cache/
 .tmp/
 .versions/
 coverage/
 dist/
-node_modules/
 tmp/
 temp/
 hooks/
 platforms/
-plugins/
 www/
-plugins/android.json
-plugins/ios.json
 $RECYCLE.BIN/
 
 .DS_Store
