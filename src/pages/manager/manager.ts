@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, LoadingController, ToastController} from 'ionic-angular';
+import {NavController, LoadingController} from 'ionic-angular';
 import {ManagerService} from '../../providers/manager-service';
 import {MgDetailPage} from '../manager-detail/manager-detail';
 import {GlobalVars} from '../../providers/globalVars';
@@ -14,7 +14,7 @@ export class ManagerPage {
     searchKey: string = "";
     loading:any
 
-  constructor(public navCtrl: NavController, public service: ManagerService,private loader:LoadingController, private globalVar:GlobalVars,public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public service: ManagerService,private loader:LoadingController, private globalVar:GlobalVars) {
       this.findAll();
       this.loading = this.loader.create();
       this.loading.present();
@@ -37,11 +37,9 @@ export class ManagerPage {
       let role = this.globalVar.getUserRole();
         this.service.getManager(id,role)
             .then(res =>{
-              console.log("Data:"+JSON.stringify(res));
                 this.manager = res.data;
                 this.responsedata = res.data;
 
-                console.log(res.data);
                 this.loading.dismiss();
             })
             .catch(error => console.log("Error:"+error));

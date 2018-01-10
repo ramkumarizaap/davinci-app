@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {NavController, NavParams, ModalController, ViewController, ToastController, Refresher, Slides} from 'ionic-angular';
 import {ProjectService} from '../../providers/project-service';
-import {GlobalVars} from '../../providers/globalVars';
 
 @Component({selector:'page-viewmilestone',templateUrl:'viewmilestone.html'})
 export class ViewMilestonePage {
@@ -11,7 +10,7 @@ export class ViewMilestonePage {
     processlist:any;
     imgpath:any;
 
-    constructor( public navCtrl: NavController, public navParams: NavParams, public service: ProjectService, private globalVar:GlobalVars,public toastCtrl: ToastController,public modalCtrl: ModalController,) {
+    constructor( public navCtrl: NavController, public navParams: NavParams, public service: ProjectService,public toastCtrl: ToastController,public modalCtrl: ModalController,) {
 
         this.milestone = this.navParams.data; 
 

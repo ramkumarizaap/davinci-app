@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
-import { NavController, NavParams, ToastController} from 'ionic-angular';
-import {ContractorService} from '../../providers/contractor-service';
+import { NavController, NavParams,} from 'ionic-angular';
 import {OngoingProject} from '../ongoing-project/ongoing-project';
-import {GlobalVars} from '../../providers/globalVars';
 
 @Component({
     selector: 'page-contractor-detail',
@@ -12,7 +10,7 @@ export class ContractorDetailPage {
  	contractor: any;
     response:boolean = false;
     
-    constructor( public navCtrl: NavController, public navParams: NavParams, public service: ContractorService, private globalVar:GlobalVars,public toastCtrl: ToastController) {
+    constructor( public navCtrl: NavController, public navParams: NavParams) {
  		this.contractor = this.navParams.data;
  		this.response = true;
  	}

@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
-import { NavController, NavParams, ToastController} from 'ionic-angular';
-import {ContractorService} from '../../providers/contractor-service';
+import { NavController, NavParams} from 'ionic-angular';
 import {OngoingProject} from '../ongoing-project/ongoing-project';
-import {GlobalVars} from '../../providers/globalVars';
 
 @Component({
     selector: 'manager-detail',
@@ -11,7 +9,7 @@ import {GlobalVars} from '../../providers/globalVars';
 export class MgDetailPage {
  	manager: any;
     response:boolean = false;
- constructor( public navCtrl: NavController, public navParams: NavParams, public service: ContractorService, private globalVar:GlobalVars,public toastCtrl: ToastController) {
+ 	constructor( public navCtrl: NavController, public navParams: NavParams) {
  		this.manager = this.navParams.data;
  		this.response = true;
  	}
