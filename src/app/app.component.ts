@@ -2,7 +2,6 @@ import {Component, ViewChild} from '@angular/core';
 import {Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-import {GlobalVars} from "../providers/globalVars";
 import {LoginPage} from '../pages/login/login';
 import {MyaccountPage} from '../pages/myaccount/myaccount';
 import {ProjectListPage} from '../pages/project/project';
@@ -25,7 +24,7 @@ export class MyApp {
     users:any;
     appMenuItems: Array<MenuItem>;
 
-    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private globalVar:GlobalVars) {
+    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
         this.initializeApp();
         this.appMenuItems = [
             {title: 'Projects', component: ProjectListPage, icon: 'home'},
